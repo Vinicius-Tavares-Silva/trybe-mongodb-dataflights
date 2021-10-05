@@ -1,6 +1,7 @@
+const name = "LATAM AIRLINES BRASIL";
 use("dataFlights");
 db.resumoVoos.insertOne({
-  empresa: "PASSAREDO",
-  totalVoosDomesticos: db.voos.count({ "empresa.nome": "PASSAREDO", natureza: "Doméstica" }),
+  empresa: name,
+  totalVoosDomesticos: db.voos.count({ "empresa.nome": name, natureza: "Doméstica" }),
 });
-db.resumoVoos.find({ empresa: "PASSAREDO" }, { _id: false });
+db.resumoVoos.find({ empresa: name }, { _id: false });
