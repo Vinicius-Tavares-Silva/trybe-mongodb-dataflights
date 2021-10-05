@@ -1,5 +1,2 @@
 use("dataFlights");
-db.voos.find(
-  { litrosCombustivel: { $exists: true, $lt: 600 }, "empresa.nome": {$ne: "GOL" } },
-  { vooId: true, litrosCombustivel: true, "empresa.nome": true , _id: false },
-).limit(1);
+db.voos.deleteMany({ "empresa.nome": "AZUL", litrosCombustivel: { $lt: 400} });
