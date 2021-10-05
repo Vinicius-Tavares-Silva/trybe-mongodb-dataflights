@@ -1,2 +1,2 @@
 use("dataFlights");
-db.voos.count();
+db.voos.find({ "empresa.nome": { $eq: "AZUL" } }).limit(10);
