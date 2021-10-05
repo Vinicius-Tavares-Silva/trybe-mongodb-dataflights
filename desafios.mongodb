@@ -1,9 +1,5 @@
 use("dataFlights");
 db.voos.find(
-  { $and: [
-    { "aeroportoOrigem.sigla": "SBGR" },
-    { "empresa.nome": { $in: ["DELTA AIRLINES", "AMERICAN AIRLINES"] } },
-    { "aeroportoDestino.sigla": "KJFK"},
-  ] },
-  { vooId: true, _id: false },
+  { litrosCombustivel: { $exists: true, $lt: 1000 } },
+  { vooId: true, litrosCombustivel: true, _id: false },
 ).limit(1);
