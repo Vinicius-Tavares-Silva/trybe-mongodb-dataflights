@@ -1,2 +1,5 @@
 use("dataFlights");
-db.voos.count({ ano: { $gte: 2017, $lte: 2018 } });
+db.voos.find(
+  { $and: [ { ano: 2017 }, { "empresa.nome": "GOL" } ] },
+  { vooId: true, "empresa.nome": true, "aeroportoOrigem.nome": true, "aeroportoDestino.nome": true, mes: true, ano: true, _id: false }
+).limit(10);
