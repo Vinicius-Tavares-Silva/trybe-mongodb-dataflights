@@ -1,0 +1,1 @@
+db.voos.find({}, { vooId: true, _id: false }).sort({ _id: 1 }).limit(3).skip(9);
